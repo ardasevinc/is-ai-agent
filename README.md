@@ -1,12 +1,45 @@
 # is-agent
 
-## What
+Detect if your code is running under an AI coding agent.
 
-Detects if process is running under an AI agent.
+## Install
 
-## Currently Supported
+```bash
+bun add is-agent
+```
 
-- Claude Code
-- Codex
-- Gemini CLI
-- OpenCode
+## Usage
+
+```ts
+import { isAgent, isClaudeCode, isGeminiCli, isCodex, isOpenCode } from 'is-agent'
+
+// Check which agent (if any)
+const agent = isAgent()
+// Returns: 'claude' | 'gemini' | 'codex' | 'opencode' | null
+
+if (agent) {
+  console.log(`Running under ${agent}`)
+}
+
+// Or use individual boolean checks
+if (isClaudeCode()) {
+  // Claude Code specific behavior
+}
+```
+
+## Supported Agents
+
+| Agent | Env Var |
+|-------|---------|
+| [Claude Code](https://github.com/anthropics/claude-code) | `CLAUDECODE=1` |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `GEMINI_CLI=1` |
+| [Codex CLI](https://github.com/openai/codex) | `CODEX_CI=1` |
+| [OpenCode](https://github.com/sst/opencode) | `OPENCODE=1` |
+
+## Contributing
+
+Want to add support for another agent? PRs welcome! Just add an entry to the agents map in `index.ts`.
+
+## License
+
+MIT

@@ -1,8 +1,36 @@
 {
   "name": "is-agent",
-  "module": "index.ts",
+  "version": "0.1.0",
+  "description": "Detect if code is running under an AI coding agent",
+  "author": "Arda Sevinc <arda@ardasevinc.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardasevinc/is-agent.git"
+  },
+  "homepage": "https://github.com/ardasevinc/is-agent#readme",
+  "bugs": {
+    "url": "https://github.com/ardasevinc/is-agent/issues"
+  },
   "type": "module",
-  "private": true,
+  "module": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "types": "./index.ts",
+  "files": [
+    "index.ts"
+  ],
+  "keywords": [
+    "ai",
+    "agent",
+    "llm",
+    "claude",
+    "gemini",
+    "codex",
+    "opencode",
+    "detection"
+  ],
   "devDependencies": {
     "@types/bun": "latest"
   },
