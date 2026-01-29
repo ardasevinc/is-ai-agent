@@ -6,11 +6,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ardasevinc/is-agent.git"
+    "url": "git+https://github.com/ardasevinc/is-ai-agent.git"
   },
-  "homepage": "https://github.com/ardasevinc/is-agent#readme",
+  "homepage": "https://github.com/ardasevinc/is-ai-agent#readme",
   "bugs": {
-    "url": "https://github.com/ardasevinc/is-agent/issues"
+    "url": "https://github.com/ardasevinc/is-ai-agent/issues"
   },
   "type": "module",
   "module": "index.ts",

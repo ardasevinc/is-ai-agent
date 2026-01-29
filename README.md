@@ -1,4 +1,4 @@
-# is-agent
+# is-ai-agent
 
 Detect if your code is running under an AI coding agent.
 
