@@ -1,5 +1,5 @@
 {
-  "name": "is-agent",
+  "name": "is-ai-agent",
   "version": "0.1.0",
   "description": "Detect if code is running under an AI coding agent",
   "author": "Arda Sevinc <arda@ardasevinc.com>",

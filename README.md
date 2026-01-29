@@ -5,13 +5,13 @@ Detect if your code is running under an AI coding agent.
 ## Install
 
 ```bash
-bun add is-agent
+bun add is-ai-agent
 ```
 
 ## Usage
 
 ```ts
-import { isAgent, isClaudeCode, isGeminiCli, isCodex, isOpenCode } from 'is-agent'
+import { isAgent, isClaudeCode, isGeminiCli, isCodex, isOpenCode } from 'is-ai-agent'
 
 // Check which agent (if any)
 const agent = isAgent()
