@@ -1,5 +1,6 @@
 export const AGENTS = {
   claude: 'CLAUDECODE',
+  cursor: 'CURSOR_AGENT',
   gemini: 'GEMINI_CLI',
   codex: 'CODEX_CI',
   opencode: 'OPENCODE',
@@ -16,6 +17,7 @@ export function isAgent(): AgentName | null {
 }
 
 export const isClaudeCode = (): boolean => isAgent() === 'claude'
+export const isCursor = (): boolean => isAgent() === 'cursor'
 export const isGeminiCli = (): boolean => isAgent() === 'gemini'
 export const isCodex = (): boolean => isAgent() === 'codex'
 export const isOpenCode = (): boolean => isAgent() === 'opencode'
