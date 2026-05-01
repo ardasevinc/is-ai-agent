@@ -11,11 +11,11 @@ bun add is-ai-agent
 ## Usage
 
 ```ts
-import { isAgent, isClaudeCode, isGeminiCli, isCodex, isOpenCode } from 'is-ai-agent'
+import { isAgent, isClaudeCode, isCursor, isGeminiCli, isCodex, isOpenCode } from 'is-ai-agent'
 
 // Check which agent (if any)
 const agent = isAgent()
-// Returns: 'claude' | 'gemini' | 'codex' | 'opencode' | null
+// Returns: 'claude' | 'cursor' | 'gemini' | 'codex' | 'opencode' | null
 
 if (agent) {
   console.log(`Running under ${agent}`)
@@ -32,6 +32,7 @@ if (isClaudeCode()) {
 | Agent | Env Var |
 |-------|---------|
 | [Claude Code](https://github.com/anthropics/claude-code) | `CLAUDECODE=1` |
+| [Cursor](https://github.com/cursor/cursor) | `CURSOR_AGENT=1` |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `GEMINI_CLI=1` |
 | [Codex CLI](https://github.com/openai/codex) | `CODEX_CI=1` |
 | [OpenCode](https://github.com/sst/opencode) | `OPENCODE=1` |
