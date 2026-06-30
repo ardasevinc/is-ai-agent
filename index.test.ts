@@ -1,5 +1,5 @@
 import { test, expect, beforeEach, afterEach } from 'bun:test'
-import { isAgent, isClaudeCode, isGeminiCli, isCodex, isOpenCode, AGENTS, type AgentName } from './index'
+import { isAgent, isClaudeCode, isCursor, isGeminiCli, isCodex, isOpenCode, AGENTS, type AgentName } from './index'
 
 const envVars = Object.values(AGENTS)
 let savedEnv: Record<string, string | undefined> = {}
@@ -31,6 +31,11 @@ test('isAgent detects claude', () => {
   expect(isAgent()).toBe('claude')
 })
 
+test('isAgent detects cursor', () => {
+  process.env.CURSOR_AGENT = '1'
+  expect(isAgent()).toBe('cursor')
+})
+
 test('isAgent detects gemini', () => {
   process.env.GEMINI_CLI = '1'
   expect(isAgent()).toBe('gemini')
@@ -50,6 +55,12 @@ test('isClaudeCode returns true only for claude', () => {
   expect(isClaudeCode()).toBe(false)
   process.env.CLAUDECODE = '1'
   expect(isClaudeCode()).toBe(true)
+})
+
+test('isCursor returns true only for cursor', () => {
+  expect(isCursor()).toBe(false)
+  process.env.CURSOR_AGENT = '1'
+  expect(isCursor()).toBe(true)
 })
 
 test('isGeminiCli returns true only for gemini', () => {
@@ -84,16 +95,20 @@ test('isAgent ignores non-"1" values', () => {
 })
 
 test('multiple env vars set returns first match (priority order)', () => {
-  // Priority: claude > gemini > codex > opencode (object key order)
+  // Priority: claude > cursor > gemini > codex > opencode (object key order)
   process.env.CLAUDECODE = '1'
+  process.env.CURSOR_AGENT = '1'
   process.env.GEMINI_CLI = '1'
   expect(isAgent()).toBe('claude')
 
   delete process.env.CLAUDECODE
+  expect(isAgent()).toBe('cursor')
+
+  delete process.env.CURSOR_AGENT
   expect(isAgent()).toBe('gemini')
 })
 
 test('AGENTS export contains all supported agents', () => {
-  const expected: AgentName[] = ['claude', 'gemini', 'codex', 'opencode']
+  const expected: AgentName[] = ['claude', 'cursor', 'gemini', 'codex', 'opencode']
   expect(Object.keys(AGENTS).sort()).toEqual(expected.sort())
 })
